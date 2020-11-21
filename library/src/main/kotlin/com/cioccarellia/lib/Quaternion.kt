@@ -1,5 +1,5 @@
 /**
- * Designed and developed by Aidan Follestad (@afollestad)
+ * Designed and developed by Andrea Cioccarelli (@cioccarellia)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,22 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.afollestad.librarytemplate
+@file:Suppress("EnumEntryName")
 
-import android.content.Context
-import androidx.annotation.VisibleForTesting
+package com.cioccarellia.lib
 
-/** @author Aidan Follestad (@afollestad) */
-class Greeter(
-  @VisibleForTesting var context: Context?
-) {
-  /** Greets someone with the given [name]. */
-  fun greet(name: String): String {
-    return context?.resources?.getString(R.string.hello_x, name).orEmpty()
-  }
+typealias Real = Float
 
-  /** Releases the [context]. */
-  fun dispose() {
-    context = null
-  }
+enum class VectorSpaceBase {
+    `1`, i, j, k
 }
+
+class Quaternion(a: Real, b: Real, c: Real, d: Real)

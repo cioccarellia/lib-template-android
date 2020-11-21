@@ -13,5 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.cioccarellia.sample
 
-include ':sample', ':library'
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.cioccarellia.lib.Quaternion
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val q = Quaternion(7f, 6f, -3f, 2f)
+    }
+}
