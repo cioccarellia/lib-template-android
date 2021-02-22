@@ -1,1 +1,1 @@
-# Library Template
+# Library Template# android-library-template
