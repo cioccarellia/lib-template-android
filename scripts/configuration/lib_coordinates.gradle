@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 ext.library_coordinates = [
-        publish_group: "com.cioccarellia",
-        artifact     : "library",
+        publish_group         : "com.cioccarellia",
+        artifact              : "library",
         
-        description  : "(none)",
-        website      : "https://github.com/cioccarellia/android-library-template"
+        description           : "(none)",
+        website               : "https://github.com/cioccarellia/android-library-template",
+        
+        override_build_version: false,
+        overridden_version    : ""
 ]

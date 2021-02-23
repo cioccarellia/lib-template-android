@@ -19,11 +19,16 @@ apply from: rootProject.file("scripts/configuration/lib_compilation_parameters.g
 apply from: rootProject.file("scripts/configuration/lib_coordinates.gradle")
 
 ext {
-    PUBLISH_GROUP_ID = "${library_coordinates.publish_group}.${library_coordinates.artifact}"
-    PUBLISH_VERSION = compilation_parameters.version
+    PUBLISH_GROUP_ID = library_coordinates.publish_group
     PUBLISH_ARTIFACT_ID = library_coordinates.artifact
     PUBLISH_ARTIFACT_DESC = library_coordinates.description
     PUBLISH_ARTIFACT_WEBSITE = library_coordinates.website
+    
+    if (library_coordinates.override_build_version) {
+        PUBLISH_VERSION = library_coordinates.overridden_version
+    } else {
+        PUBLISH_VERSION = compilation_parameters.version
+    }
 }
 
 apply from: rootProject.file("scripts/commons/lib_config.gradle")

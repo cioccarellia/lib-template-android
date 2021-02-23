@@ -1,4 +1,4 @@
-# android-library-template
+# android-library-template _(beta)_
 This project is to be used as a template to create a new android kotlin library. 
 It is meant to be abstract and polished from the ground up, containing only the necessary components, plugins and modules while keeping agility and flexibility. 
 
