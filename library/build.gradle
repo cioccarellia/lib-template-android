@@ -15,15 +15,26 @@
  */
 ext.module_name = "library"
 
-apply from: rootProject.file("gradle/android_library_config.gradle")
+apply from: rootProject.file("scripts/configuration/lib_compilation_parameters.gradle")
+apply from: rootProject.file("scripts/configuration/lib_coordinates.gradle")
+
+ext {
+    PUBLISH_GROUP_ID = "${library_coordinates.publish_group}.${library_coordinates.artifact}"
+    PUBLISH_VERSION = compilation_parameters.version
+    PUBLISH_ARTIFACT_ID = library_coordinates.artifact
+    PUBLISH_ARTIFACT_DESC = library_coordinates.description
+    PUBLISH_ARTIFACT_WEBSITE = library_coordinates.website
+}
+
+apply from: rootProject.file("scripts/commons/lib_config.gradle")
+apply from: rootProject.file("scripts/publishing/publish_mavencentral.gradle")
 
 dependencies {
     compileOnly deps.androidx.annotations
-    implementation deps.kotlin.stdlib8
+    implementation deps.kotlin.stdlib
     
-    testImplementation deps.kotlin.test.mockito
-    testImplementation deps.test.robolectric
-    testImplementation deps.test.junit
-    testImplementation deps.test.mockito_core
-    testImplementation deps.test.truth
+    testImplementation deps.testing.core
+    testImplementation deps.testing.ext_junit
+    testImplementation deps.testing.google_truth
+    testImplementation deps.testing.espresso_core
 }

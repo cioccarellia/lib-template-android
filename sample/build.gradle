@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-ext.module_name = "sample"
 
-apply from: rootProject.file("gradle/android_application_config.gradle")
+ext.module_name = "sample"
+apply from: rootProject.file("scripts/commons/app_config.gradle")
 
 dependencies {
     implementation project(":library")
     
     implementation deps.androidx.app_compat
     implementation deps.androidx.constraint_layout
-    implementation deps.kotlin.stdlib8
+    //implementation deps.kotlin.stdlib8
 }

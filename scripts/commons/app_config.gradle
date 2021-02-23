@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@file:Suppress("EnumEntryName", "UNUSED_PARAMETER")
 
-package com.cioccarellia.lib
+/**
+ * Application-only gradle script
+ * */
+apply plugin: "com.android.application"
+apply from: rootProject.file("scripts/commons/common_config.gradle")
 
-typealias Real = Float
-
-enum class VectorSpaceBase {
-    `1`, i, j, k
+if (module_package_id == null) {
+    throw new IllegalStateException("module_package_id is null.")
 }
 
-class Quaternion(a: Real, b: Real, c: Real, d: Real)
+android.defaultConfig.applicationId = module_package_id.replace('-', '')

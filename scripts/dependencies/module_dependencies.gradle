@@ -1,0 +1,77 @@
+/**
+ * Designed and developed by Andrea Cioccarelli (@cioccarellia)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import com.cioccarellia.config.CompileConfiguration
+import com.cioccarellia.config.Versions
+
+ext.deps = [
+        kotlin  : [
+                stdlib     : "org.jetbrains.kotlin:kotlin-stdlib:${CompileConfiguration.kotlinVersion}",
+                stdlib_jdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${CompileConfiguration.kotlinVersion}",
+                stdlib_jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${CompileConfiguration.kotlinVersion}",
+                coroutines : [
+                        core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.coroutines}",
+                        android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.coroutines}",
+                ],
+        ],
+        
+        androidx: [
+                core             : "androidx.core:core-ktx:${Versions.AndroidX.coreKtx}",
+                annotations      : "androidx.annotation:annotation:${Versions.AndroidX.annotations}",
+                app_compat       : "androidx.appcompat:appcompat:${Versions.AndroidX.appCompat}",
+                constraint_layout: "com.android.support.constraint:constraint-layout:${Versions.AndroidX.constraintLayout}",
+                
+                lifecycle        : [
+                        live_data : "androidx.lifecycle:lifecycle-livedata:${Versions.AndroidX.lifecycle}",
+                        view_model: "androidx.lifecycle:lifecycle-viewmodel:${Versions.AndroidX.lifecycle}",
+                        ext       : "androidx.lifecycle:lifecycle-extensions:${Versions.AndroidX.lifecycle}"
+                ]
+        ],
+        
+        /**
+         * Test-only dependencies
+         * */
+        testing : [
+                // Core library
+                core                      : "androidx.test:core:${Versions.Testing.testing}",
+                core_ktx                  : "androidx.test:core-ktx:${Versions.Testing.testing}",
+                
+                // AndroidJUnitRunner and JUnit Rules
+                runner                    : "androidx.test:runner:${Versions.Testing.testing}",
+                rules                     : "androidx.test:rules:${Versions.Testing.testing}",
+                monitor                   : "androidx.test:monitor:${Versions.Testing.testing}",
+                
+                // Assertions
+                ext_junit                 : "androidx.test.ext:junit:${Versions.Testing.extJUnit}",
+                ext_junit_ktx             : "androidx.test.ext:junit-ktx:${Versions.Testing.extJUnit}",
+                ext_truth                 : "androidx.test.ext:truth:${Versions.Testing.extTruth}",
+                
+                google_truth              : "com.google.truth:truth:${Versions.Testing.truth}",
+                
+                // Espresso dependencies
+                espresso_core             : "androidx.test.espresso:espresso-core:${Versions.Testing.espresso}",
+                espresso_contrib          : "androidx.test.espresso:espresso-contrib:${Versions.Testing.espresso}",
+                espresso_intents          : "androidx.test.espresso:espresso-intents:${Versions.Testing.espresso}",
+                espresso_accessibility    : "androidx.test.espresso:espresso-accessibility:${Versions.Testing.espresso}",
+                espresso_web              : "androidx.test.espresso:espresso-web:${Versions.Testing.espresso}",
+                espresso_idling_concurrent: "androidx.test.espresso.idling:idling-concurrent:${Versions.Testing.espressoIdling}",
+                espresso_idling_resources : "androidx.test.espresso:espresso-idling-resource:${Versions.Testing.espressoIdling}",
+        ],
+        
+        debug   : [
+                timber    : "com.jakewharton.timber:timber:${Versions.Debug.timber}",
+                leakcanary: "com.squareup.leakcanary:leakcanary-android:${Versions.Debug.leakCanary}",
+        ],
+]

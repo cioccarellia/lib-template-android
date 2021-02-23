@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 /**
  * Designed and developed by Andrea Cioccarelli (@cioccarellia)
  *
@@ -13,12 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.cioccarellia.config
 
-apply plugin: "com.android.application"
-apply from: rootProject.file("gradle/android_common_config.gradle")
+object CompileConfiguration {
+    const val kotlinVersion = "1.4.30"
+    const val jvmTarget = 1.8
 
-if (module_package_id == null) {
-    throw new IllegalStateException("module_package_id is missing!")
+    const val compileSdkVersion = 29
+    const val compileLibVersion = "29.0.3"
+    // You can find the min and compile sdk version at lib_compilation_parameters.kt
 }
-
-android.defaultConfig.applicationId = module_package_id.replace('-', '')

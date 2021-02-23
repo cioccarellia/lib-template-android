@@ -13,38 +13,69 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import com.cioccarellia.config.CompileConfiguration
+
+apply plugin: 'io.codearte.nexus-staging'
+
 buildscript {
-    // Global Kotlin versions
-    ext.kotlin_version = '1.4.20'
+    apply from: rootProject.file("scripts/dependencies/project_plugins.gradle")
     
-    // Dependencies
-    apply from: rootProject.file("dependencies.gradle")
+    // Global project-wide kotlin version
+    ext.kotlin_version = CompileConfiguration.kotlinVersion
     
+    /**
+     * The repositories block configures the repositories Gradle uses to
+     * search or download the dependencies.
+     */
     repositories {
         google()
+        mavenCentral()
+        
+        // Remove as soon as humanly possible
         jcenter()
     }
     
+    /**
+     * The dependencies block configures the dependencies Gradle needs to use
+     * to build your project.
+     */
     dependencies {
-        classpath deps.gradle_plugins.android
-        classpath deps.gradle_plugins.bintray_release
-        classpath deps.gradle_plugins.kotlin
-        classpath deps.gradle_plugins.versions
+        classpath gradle_plugins.android_gradle_plugin
+        classpath gradle_plugins.kotlin_gradle_plugin
+        classpath gradle_plugins.nexus_staging_plugin
     }
 }
 
+/**
+ * The allprojects block is where you configure the repositories and
+ * dependencies used by all modules in your project, such as third-party plugins
+ * or libraries. However, you should configure module-specific dependencies in
+ * each module-level build.gradle file. For new projects.
+ */
 allprojects {
     repositories {
         google()
+        mavenCentral()
+        
+        // Remove as soon as humanly possible
         jcenter()
     }
 }
 
 subprojects {
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        sourceCompatibility = CompileConfiguration.jvmTarget
+        targetCompatibility = CompileConfiguration.jvmTarget
+        
+        // Kotlin JVM-target version
         kotlinOptions {
-            jvmTarget = 1.8
+            jvmTarget = CompileConfiguration.jvmTarget
             freeCompilerArgs += ["-module-name", project.path.replace(':', '')]
         }
     }
+}
+
+ext {
+    compileSdkVersion = CompileConfiguration.compileSdkVersion
+    supportLibVersion = CompileConfiguration.compileLibVersion
 }

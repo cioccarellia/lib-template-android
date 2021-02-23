@@ -14,20 +14,13 @@
  * limitations under the License.
  */
 
-/**
- * Contains all the top level `build.gradle` version information.
- * */
-ext.versions = [
-        kotlin_version: "1.4.30",
-        
-]
+import com.cioccarellia.config.Versions
 
 /**
  * Contains all the top level `build.gradle` dependencies.
  * */
-ext.top_level_deps = [
-        // Android Gradle Plug-In
-        android: "com.android.tools.build:gradle:4.1.2",
-        // Kotlin plugin
-        kotlin : "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72"
+ext.gradle_plugins = [
+        android_gradle_plugin: "com.android.tools.build:gradle:${Versions.GradlePlugins.gradleAndroidPlugin}",
+        kotlin_gradle_plugin : "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.GradlePlugins.kotlinAndroidPlugin}",
+        nexus_staging_plugin: "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:${Versions.GradlePlugins.nexusStagingPlugin}"
 ]
