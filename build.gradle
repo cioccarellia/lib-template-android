@@ -13,21 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.cioccarellia.config.CompileConfiguration
+import com.cioccarellia.buildconfig.config.KotlinCompilerConfig
+import com.cioccarellia.buildconfig.dependencies.Plugins
 
 apply plugin: 'io.codearte.nexus-staging'
 
 buildscript {
-    apply from: rootProject.file("scripts/dependencies/project_plugins.gradle")
-    
     // Global project-wide kotlin version
-    ext.kotlin_version = CompileConfiguration.kotlinVersion
+    ext.kotlin_version = KotlinCompilerConfig.kotlinVersion
     
     /**
      * The repositories block configures the repositories Gradle uses to
      * search or download the dependencies.
      */
     repositories {
+        
         google()
         mavenCentral()
         
@@ -40,9 +40,9 @@ buildscript {
      * to build your project.
      */
     dependencies {
-        classpath gradle_plugins.android_gradle_plugin
-        classpath gradle_plugins.kotlin_gradle_plugin
-        classpath gradle_plugins.nexus_staging_plugin
+        classpath Plugins.androidGradlePlugin
+        classpath Plugins.kotlinGradlePlugin
+        classpath Plugins.nexusStagingGradlePlugin
     }
 }
 
@@ -73,9 +73,4 @@ subprojects {
             freeCompilerArgs += ["-module-name", project.path.replace(':', '')]
         }
     }
-}
-
-ext {
-    compileSdkVersion = CompileConfiguration.compileSdkVersion
-    supportLibVersion = CompileConfiguration.compileLibVersion
 }

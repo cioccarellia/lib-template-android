@@ -31,7 +31,7 @@ ext {
     }
 }
 
-apply from: rootProject.file("scripts/commons/lib_config.gradle")
+apply from: rootProject.file("scripts/commons/library_config.gradle")
 apply from: rootProject.file("scripts/publishing/publish_mavencentral.gradle")
 
 dependencies {

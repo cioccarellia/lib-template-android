@@ -16,7 +16,9 @@
  * limitations under the License.
  */
 
-package com.cioccarellia.config
+package com.cioccarellia.buildconfig.versions
+
+import com.cioccarellia.buildconfig.CompileConfiguration
 
 object Versions {
     /**

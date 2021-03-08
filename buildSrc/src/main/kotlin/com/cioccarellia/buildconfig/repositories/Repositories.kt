@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 /**
  * Designed and developed by Andrea Cioccarelli (@cioccarellia)
  *
@@ -14,13 +16,14 @@
  * limitations under the License.
  */
 
-import com.cioccarellia.config.Versions
+package com.cioccarellia.buildconfig.repositories
 
-/**
- * Contains all the top level `build.gradle` dependencies.
- * */
-ext.gradle_plugins = [
-        android_gradle_plugin: "com.android.tools.build:gradle:${Versions.GradlePlugins.gradleAndroidPlugin}",
-        kotlin_gradle_plugin : "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.GradlePlugins.kotlinAndroidPlugin}",
-        nexus_staging_plugin: "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:${Versions.GradlePlugins.nexusStagingPlugin}"
-]
+enum class Repos {
+    Google, MavenCentral, @Deprecated("Discontinued") JCenter, JitPack
+}
+
+object Repositories {
+    val activeRepositories = listOf(
+        Repos.Google, Repos.MavenCentral
+    )
+}

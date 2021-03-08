@@ -14,33 +14,33 @@
  * limitations under the License.
  */
 
-import com.cioccarellia.config.CompileConfiguration
+import com.cioccarellia.buildconfig.config.KotlinCompilerConfig
+import com.cioccarellia.buildconfig.config.AndroidSdkConfig
 
 /**
  * Common code between library and application modules
  * */
 apply plugin: "kotlin-android"
 
-apply from: rootProject.file("scripts/dependencies/module_dependencies.gradle")
 apply from: rootProject.file("scripts/configuration/lib_coordinates.gradle")
 apply from: rootProject.file("scripts/configuration/lib_compilation_parameters.gradle")
 
 ext.module_package_id = "${library_coordinates.publish_group}.${module_name}"
 
 android {
-    compileSdkVersion CompileConfiguration.compileSdkVersion
-    buildToolsVersion CompileConfiguration.compileLibVersion
+    compileSdkVersion AndroidSdkConfig.compileSdkVersion
+    buildToolsVersion AndroidSdkConfig.compileLibVersion
     
     compileOptions {
-        sourceCompatibility CompileConfiguration.jvmTarget
-        targetCompatibility CompileConfiguration.jvmTarget
+        sourceCompatibility KotlinCompilerConfig.jvmTarget
+        targetCompatibility KotlinCompilerConfig.jvmTarget
     }
     
     defaultConfig {
-        minSdkVersion compilation_parameters.min_sdk
-        targetSdkVersion compilation_parameters.compile_sdk
-        versionName compilation_parameters.version
-        versionCode compilation_parameters.version_code
+        minSdkVersion AndroidSdkConfig.minSdk
+        targetSdkVersion AndroidSdkConfig.compileSdk
+        versionName "1"
+        versionCode 1
     }
     
     sourceSets {
