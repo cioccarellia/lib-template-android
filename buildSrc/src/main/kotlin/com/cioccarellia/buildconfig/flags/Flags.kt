@@ -16,13 +16,7 @@
  * limitations under the License.
  */
 
-package com.cioccarellia.buildconfig
+package com.cioccarellia.buildconfig.flags
 
-object CompileConfiguration {
-    const val kotlinVersion = "1.4.30"
-    const val jvmTarget = 1.8
-
-    const val compileSdkVersion = 29
-    const val compileLibVersion = "29.0.3"
-    // You can find the min and compile sdk version at lib_compilation_parameters.kt
+object Flags {
 }

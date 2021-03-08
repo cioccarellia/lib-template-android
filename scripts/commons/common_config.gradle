@@ -35,7 +35,7 @@ android {
     defaultConfig {
         minSdkVersion AndroidSdkConfig.minSdk
         targetSdkVersion AndroidSdkConfig.compileSdk
-        versionName "1"
+        versionName "nope"
         versionCode 1
     }
     

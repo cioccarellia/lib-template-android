@@ -1,6 +1,9 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
+/**
+ * Current module coordinate object which is choosen to be deployed.
+ * */
 def currentDeployModule = project.ext.get("module_complex_numbers")
 
 task androidSourcesJar(type: Jar) {
@@ -42,7 +45,7 @@ if (secretPropsFile.exists()) {
     ext["signing.password"] = System.getenv('SIGNING_PASSWORD')
     ext["signing.secretKeyRingFile"] = System.getenv('SIGNING_SECRET_KEY_RING_FILE')
     ext["ossrhUsername"] = System.getenv('OSSRH_USERNAME')
-    ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD') + "fs"
+    ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
     ext["sonatypeStagingProfileId"] = System.getenv('SONATYPE_STAGING_PROFILE_ID')
 }
 

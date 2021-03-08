@@ -18,48 +18,5 @@
 
 package com.cioccarellia.buildconfig.versions
 
-import com.cioccarellia.buildconfig.CompileConfiguration
-
 object Versions {
-    /**
-     * Project-level plugin versions
-     * */
-    object GradlePlugins {
-        const val gradleAndroidPlugin = "4.1.2"
-        const val kotlinAndroidPlugin = CompileConfiguration.kotlinVersion
-        const val nexusStagingPlugin = "0.22.0"
-    }
-
-    object Kotlin {
-        const val coroutines = "1.4.2"
-    }
-
-    /**
-     * AndroidX-only versions
-     * */
-    object AndroidX {
-        const val coreKtx = "1.3.2"
-        const val annotations = "1.1.0"
-        const val appCompat = "1.2.0"
-        const val constraintLayout = "2.0.4"
-        const val lifecycle = "2.3.0"
-    }
-
-    object Testing {
-        const val testing = "1.3.0"
-        const val extJUnit = "1.1.2"
-        const val extTruth = "1.3.0"
-        const val truth = "0.42"
-
-        const val espresso = "3.1.0"
-        const val espressoIdling = "3.3.0"
-    }
-
-    /**
-     * Debugging & Logging utilities
-     * */
-    object Debug {
-        const val timber = "4.7.1"
-        const val leakCanary = "2.6"
-    }
 }

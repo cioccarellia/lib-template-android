@@ -28,7 +28,6 @@ object Dependencies {
         val stdlibJdk8 = kotlinDep("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     }
 
-
     object Coroutines {
         val core = kotlinDep("org.jetbrains.kotlinx:kotlinx-coroutines-core")
         val android = kotlinDep("org.jetbrains.kotlinx:kotlinx-coroutines-android")
@@ -84,5 +83,10 @@ object Dependencies {
     object Debug {
         val timber = dep("com.jakewharton.timber:timber", "4.7.6")
         val leakCanary = dep("com.squareup.leakcanary:leakcanary-android", "2.1")
+    }
+
+    // TIP: Put your own app/library dependencies here
+    object Custom {
+
     }
 }

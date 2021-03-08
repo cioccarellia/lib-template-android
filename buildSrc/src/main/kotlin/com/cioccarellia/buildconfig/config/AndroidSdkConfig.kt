@@ -18,10 +18,13 @@
 
 package com.cioccarellia.buildconfig.config
 
+/**
+ * Global Project
+ * */
 object AndroidSdkConfig {
-    public const val minSdk: Int = 15
-    public const val compileSdk: Int = 30
+    const val minSdk: Int = 15
+    const val compileSdk: Int = 30
 
-    public const val compileSdkVersion = 29
-    public const val compileLibVersion = "29.0.3"
+    const val compileSdkVersion = 29
+    const val compileLibVersion = "29.0.3"
 }
