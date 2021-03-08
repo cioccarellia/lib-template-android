@@ -1,7 +1,7 @@
 # android-library-template ⚠️ _(beta)_
 TODO write readme & wiki
 
-<img src="art/lib-diagram.jpeg"><br><br>
+<img src="art/lib-diagram.png"><br><br>
 
 ## sources
 This template is available and would not be possible without the hard work of:
