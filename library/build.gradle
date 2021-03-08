@@ -18,6 +18,10 @@ ext.module_name = "library"
 apply from: rootProject.file("scripts/configuration/lib_compilation_parameters.gradle")
 apply from: rootProject.file("scripts/configuration/lib_coordinates.gradle")
 
+
+import com.cioccarellia.buildconfig.dependencies.Dependencies
+import com.cioccarellia.buildconfig.switches.Switches
+
 ext {
     PUBLISH_GROUP_ID = library_coordinates.publish_group
     PUBLISH_ARTIFACT_ID = library_coordinates.artifact
@@ -35,11 +39,23 @@ apply from: rootProject.file("scripts/commons/library_config.gradle")
 apply from: rootProject.file("scripts/publishing/publish_mavencentral.gradle")
 
 dependencies {
-    compileOnly deps.androidx.annotations
-    implementation deps.kotlin.stdlib
+    compileOnly Dependencies.AndroidX.annotation
+    implementation Dependencies.Kotlin.stdlib
     
-    testImplementation deps.testing.core
-    testImplementation deps.testing.ext_junit
-    testImplementation deps.testing.google_truth
-    testImplementation deps.testing.espresso_core
+    testImplementation Dependencies.Testing.core
+    testImplementation Dependencies.Testing.androidXExtJunit
+    testImplementation Dependencies.Testing.googleTruth
+    testImplementation Dependencies.Testing.espressoCore
+}
+
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        if (Switches.explicitApiModeForLibraryModules) {
+            freeCompilerArgs += [
+                    //'-progressive',
+                    '-Xexplicit-api=strict',
+            ]
+        }
+    }
 }

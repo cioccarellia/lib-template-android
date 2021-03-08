@@ -64,8 +64,8 @@ object Dependencies {
         private const val extTruthVersion = "1.3.0"
         private const val truthVersion = "0.42"
 
-        val androidxExtJunit = dep("androidx.test.ext:junit:", extJUnitVersion)
-        val androidxExtTruth = dep("androidx.test.ext:truth:", extTruthVersion)
+        val androidXExtJunit = dep("androidx.test.ext:junit:", extJUnitVersion)
+        val androidXExtTruth = dep("androidx.test.ext:truth:", extTruthVersion)
         val googleTruth = dep("com.google.truth:truth:", truthVersion)
 
         // Espresso dependencies
