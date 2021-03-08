@@ -1,6 +1,8 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
+def currentDeployModule = project.ext.get("module_complex_numbers")
+
 task androidSourcesJar(type: Jar) {
     archiveClassifier.set('sources')
     if (project.plugins.findPlugin("com.android.library")) {
@@ -18,8 +20,8 @@ artifacts {
 }
 
 
-group = PUBLISH_GROUP_ID
-version = PUBLISH_VERSION
+group = currentDeployModule.PUBLISH_GROUP_ID
+version = currentDeployModule.PUBLISH_VERSION
 
 ext["signing.keyId"] = ''
 ext["signing.password"] = ''
@@ -40,16 +42,16 @@ if (secretPropsFile.exists()) {
     ext["signing.password"] = System.getenv('SIGNING_PASSWORD')
     ext["signing.secretKeyRingFile"] = System.getenv('SIGNING_SECRET_KEY_RING_FILE')
     ext["ossrhUsername"] = System.getenv('OSSRH_USERNAME')
-    ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
+    ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD') + "fs"
     ext["sonatypeStagingProfileId"] = System.getenv('SONATYPE_STAGING_PROFILE_ID')
 }
 
 publishing {
     publications {
         release(MavenPublication) {
-            groupId PUBLISH_GROUP_ID
-            artifactId PUBLISH_ARTIFACT_ID
-            version PUBLISH_VERSION
+            groupId currentDeployModule.PUBLISH_GROUP_ID
+            artifactId currentDeployModule.PUBLISH_ARTIFACT_ID
+            version currentDeployModule.PUBLISH_VERSION
             
             if (project.plugins.findPlugin("com.android.library")) {
                 artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
@@ -60,9 +62,10 @@ publishing {
             artifact androidSourcesJar
             
             pom {
-                name = PUBLISH_ARTIFACT_ID
-                description = PUBLISH_ARTIFACT_DESC
-                url = PUBLISH_ARTIFACT_WEBSITE
+                name = currentDeployModule.PUBLISH_ARTIFACT_ID
+                description = currentDeployModule.PUBLISH_ARTIFACT_DESC
+                url = currentDeployModule.PUBLISH_ARTIFACT_WEBSITE
+                
                 licenses {
                     license {
                         name = 'APACHE LICENSE'
@@ -108,7 +111,7 @@ publishing {
 }
 
 nexusStaging {
-    packageGroup = PUBLISH_GROUP_ID
+    packageGroup = currentDeployModule.PUBLISH_GROUP_ID
     stagingProfileId = sonatypeStagingProfileId
     username = ossrhUsername
     password = ossrhPassword

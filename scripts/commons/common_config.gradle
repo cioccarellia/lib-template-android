@@ -16,16 +16,12 @@
 
 import com.cioccarellia.buildconfig.config.KotlinCompilerConfig
 import com.cioccarellia.buildconfig.config.AndroidSdkConfig
+import com.cioccarellia.buildconfig.switches.Switches
 
 /**
  * Common code between library and application modules
  * */
 apply plugin: "kotlin-android"
-
-apply from: rootProject.file("scripts/configuration/lib_coordinates.gradle")
-apply from: rootProject.file("scripts/configuration/lib_compilation_parameters.gradle")
-
-ext.module_package_id = "${library_coordinates.publish_group}.${module_name}"
 
 android {
     compileSdkVersion AndroidSdkConfig.compileSdkVersion
@@ -50,11 +46,13 @@ android {
         ]
         
         android.sourceSets.all {
-            java.srcDir("src/$name/kotlin")
+            java.srcDir("src/$name/${Switches.sourceSetLabel}")
         }
     }
     
     packagingOptions {
-        exclude "DebugProbesKt.bin"
+        Switches.androidPackagingOptionsExclusion.forEach { it
+            exclude it
+        }
     }
 }

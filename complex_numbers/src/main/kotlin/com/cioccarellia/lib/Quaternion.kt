@@ -17,10 +17,10 @@
 
 package com.cioccarellia.lib
 
-typealias Real = Float
+public typealias Real = Float
 
-enum class VectorSpaceBase {
+public enum class VectorSpaceBase {
     `1`, i, j, k
 }
 
-class Quaternion(a: Real, b: Real, c: Real, d: Real)
+public class Quaternion(a: Real, b: Real, c: Real, d: Real)

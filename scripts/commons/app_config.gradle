@@ -20,8 +20,4 @@
 apply plugin: "com.android.application"
 apply from: rootProject.file("scripts/commons/common_config.gradle")
 
-if (module_package_id == null) {
-    throw new IllegalStateException("module_package_id is null.")
-}
-
-android.defaultConfig.applicationId = module_package_id.replace('-', '')
+android.defaultConfig.applicationId = "com.cioccarellia.buildsample"

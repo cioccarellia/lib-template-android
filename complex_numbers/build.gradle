@@ -13,27 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-ext.module_name = "library"
-
-apply from: rootProject.file("scripts/configuration/lib_compilation_parameters.gradle")
-apply from: rootProject.file("scripts/configuration/lib_coordinates.gradle")
-
 
 import com.cioccarellia.buildconfig.dependencies.Dependencies
 import com.cioccarellia.buildconfig.switches.Switches
+import com.cioccarellia.buildconfig.model.ModuleArtifactCoordinates
 
-ext {
-    PUBLISH_GROUP_ID = library_coordinates.publish_group
-    PUBLISH_ARTIFACT_ID = library_coordinates.artifact
-    PUBLISH_ARTIFACT_DESC = library_coordinates.description
-    PUBLISH_ARTIFACT_WEBSITE = library_coordinates.website
-    
-    if (library_coordinates.override_build_version) {
-        PUBLISH_VERSION = library_coordinates.overridden_version
-    } else {
-        PUBLISH_VERSION = compilation_parameters.version
-    }
-}
+ext.module_name = "complex_numbers"
+
+project.ext.set("module_complex_numbers", new ModuleArtifactCoordinates(
+        "com.cioccarellia",                                             // PUBLISH_GROUP_ID
+        "complexnumbers",                                               // PUBLISH_ARTIFACT_ID
+        "(none)",                                                       // PUBLISH_ARTIFACT_DESC
+        "https://github.com/cioccarellia/android-library-template",     // PUBLISH_ARTIFACT_WEBSITE
+        "1.0.0"                                                         // PUBLISH_VERSION
+))
 
 apply from: rootProject.file("scripts/commons/library_config.gradle")
 apply from: rootProject.file("scripts/publishing/publish_mavencentral.gradle")
