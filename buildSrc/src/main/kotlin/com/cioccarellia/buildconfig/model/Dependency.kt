@@ -24,5 +24,7 @@ inline fun prepareCoordinate(coordinate: String) = coordinate.apply {
     removeSuffix(":")
 }
 
-inline fun kotlinDep(coordinates: String) = "${prepareCoordinate(coordinates)}:${KotlinCompilerConfig.kotlinVersion}"
+inline fun kotlinDep(coordinates: String) =
+    "${prepareCoordinate(coordinates)}:${KotlinCompilerConfig.kotlinVersion}"
+
 inline fun dep(coordinates: String, version: String) = "${prepareCoordinate(coordinates)}:$version"

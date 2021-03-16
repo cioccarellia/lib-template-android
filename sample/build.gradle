@@ -16,7 +16,6 @@
 
 import com.cioccarellia.buildconfig.dependencies.Dependencies
 
-
 ext.module_name = "sample"
 
 apply from: rootProject.file("scripts/commons/app_config.gradle")

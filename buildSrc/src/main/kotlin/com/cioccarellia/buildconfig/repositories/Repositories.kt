@@ -19,7 +19,8 @@
 package com.cioccarellia.buildconfig.repositories
 
 enum class Repos {
-    Google, MavenCentral, @Deprecated("Discontinued") JCenter, JitPack
+    Google, MavenCentral, @Deprecated("Discontinued")
+    JCenter, JitPack
 }
 
 object Repositories {

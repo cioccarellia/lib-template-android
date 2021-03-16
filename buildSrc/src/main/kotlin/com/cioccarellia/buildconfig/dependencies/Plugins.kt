@@ -32,5 +32,6 @@ object Plugins {
     val dokkaGradlePlugin = dep("org.jetbrains.dokka:dokka-android-gradle-plugin", "1.4.20")
 
     // Nexus Staging Plugin
-    val nexusStagingGradlePlugin = dep("io.codearte.gradle.nexus:gradle-nexus-staging-plugin", "0.22.0")
+    val nexusStagingGradlePlugin =
+        dep("io.codearte.gradle.nexus:gradle-nexus-staging-plugin", "0.22.0")
 }

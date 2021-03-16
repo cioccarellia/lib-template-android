@@ -46,12 +46,14 @@ object Dependencies {
     val androidXAppCompat = dep("androidx.appcompat:appcompat", "1.2.0")
 
     private const val constraintLayoutVersion = "2.0.4"
-    val constraintLayout = dep("com.android.support.constraint:constraint-layout", constraintLayoutVersion)
+    val constraintLayout =
+        dep("com.android.support.constraint:constraint-layout", constraintLayoutVersion)
 
     private const val lifecycleVersion = "2.3.0"
     val androidXLiveData = dep("androidx.lifecycle:lifecycle-livedata", lifecycleVersion)
     val androidXViewModel = dep("androidx.lifecycle:lifecycle-viewmodel", lifecycleVersion)
-    val androidXLifecycleExtensions = dep("androidx.lifecycle:lifecycle-extensions", lifecycleVersion)
+    val androidXLifecycleExtensions =
+        dep("androidx.lifecycle:lifecycle-extensions", lifecycleVersion)
 
     /*
     * Testing
@@ -79,10 +81,13 @@ object Dependencies {
     val espressoCore = dep("androidx.test.espresso:espresso-core", espressoVersion)
     val espressoContrib = dep("androidx.test.espresso:espresso-contrib", espressoVersion)
     val espressoIntents = dep("androidx.test.espresso:espresso-intents", espressoVersion)
-    val espressoAccessibility = dep("androidx.test.espresso:espresso-accessibility", espressoVersion)
+    val espressoAccessibility =
+        dep("androidx.test.espresso:espresso-accessibility", espressoVersion)
     val espressoWeb = dep("androidx.test.espresso:espresso-web", espressoVersion)
-    val espressoIdlingConcurrent = dep("androidx.test.espresso.idling:idling-concurrent", espressoIdlingVersion)
-    val espressoIdlingResources = dep("androidx.test.espresso:espresso-idling-resource", espressoIdlingVersion)
+    val espressoIdlingConcurrent =
+        dep("androidx.test.espresso.idling:idling-concurrent", espressoIdlingVersion)
+    val espressoIdlingResources =
+        dep("androidx.test.espresso:espresso-idling-resource", espressoIdlingVersion)
 
     object Debug {
         val timber = dep("com.jakewharton.timber:timber", "4.7.6")

@@ -21,7 +21,7 @@ apply plugin: 'io.codearte.nexus-staging'
 buildscript {
     // Global project-wide kotlin version
     ext.kotlin_version = KotlinCompilerConfig.kotlinVersion
-
+    
     /**
      * The repositories block configures the repositories Gradle uses to
      * search or download the dependencies.
@@ -29,11 +29,11 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-
+        
         // Remove as soon as humanly possible
         jcenter()
     }
-
+    
     /**
      * The dependencies block configures the dependencies Gradle needs to use
      * to build your project.
@@ -55,7 +55,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-
+        
         // Remove as soon as humanly possible
         jcenter()
     }
@@ -65,7 +65,7 @@ subprojects {
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
         sourceCompatibility = KotlinCompilerConfig.jvmTarget
         targetCompatibility = KotlinCompilerConfig.jvmTarget
-
+        
         // Kotlin JVM-target version
         kotlinOptions {
             jvmTarget = KotlinCompilerConfig.jvmTarget

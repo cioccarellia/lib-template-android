@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-import com.cioccarellia.buildconfig.config.KotlinCompilerConfig
+
 import com.cioccarellia.buildconfig.config.AndroidSdkConfig
+import com.cioccarellia.buildconfig.config.KotlinCompilerConfig
 import com.cioccarellia.buildconfig.switches.Switches
 
 /**
@@ -51,7 +52,8 @@ android {
     }
     
     packagingOptions {
-        Switches.androidPackagingOptionsExclusion.forEach { it
+        Switches.androidPackagingOptionsExclusion.forEach {
+            it
             exclude it
         }
     }
