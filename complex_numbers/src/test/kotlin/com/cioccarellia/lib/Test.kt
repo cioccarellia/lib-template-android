@@ -15,4 +15,4 @@
  */
 package com.cioccarellia.lib
 
-class Test
+public class Test

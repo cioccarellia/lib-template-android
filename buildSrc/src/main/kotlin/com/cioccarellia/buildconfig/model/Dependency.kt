@@ -20,5 +20,9 @@ package com.cioccarellia.buildconfig.model
 
 import com.cioccarellia.buildconfig.config.KotlinCompilerConfig
 
-inline fun kotlinDep(coordinates: String) = "$coordinates:${KotlinCompilerConfig.kotlinVersion}"
-inline fun dep(coordinates: String, version: String) = "$coordinates:$version"
+inline fun prepareCoordinate(coordinate: String) = coordinate.apply {
+    removeSuffix(":")
+}
+
+inline fun kotlinDep(coordinates: String) = "${prepareCoordinate(coordinates)}:${KotlinCompilerConfig.kotlinVersion}"
+inline fun dep(coordinates: String, version: String) = "${prepareCoordinate(coordinates)}:$version"

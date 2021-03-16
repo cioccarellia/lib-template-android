@@ -2,9 +2,10 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 /**
- * Current module coordinate object which is choosen to be deployed.
+ * Current module coordinate object which is chosen to be deployed.
  * */
 def currentDeployModule = project.ext.get("module_complex_numbers")
+
 
 task androidSourcesJar(type: Jar) {
     archiveClassifier.set('sources')
@@ -19,12 +20,23 @@ task androidSourcesJar(type: Jar) {
 
 artifacts {
     archives androidSourcesJar
-    // archives javadocJar
+    //archives javadocJar
 }
 
 
 group = currentDeployModule.PUBLISH_GROUP_ID
 version = currentDeployModule.PUBLISH_VERSION
+
+
+/**
+ * If the local.properties file exists under the root project directory it will
+ * be read to parse all the defined properties.
+ *
+ * Otherwise the system environment variables will be queried.
+ *
+ * Github secrets are mapped to env variables, therefore they will be retrieved
+ * if this script is executed by github actions.
+ * */
 
 ext["signing.keyId"] = ''
 ext["signing.password"] = ''
@@ -48,6 +60,7 @@ if (secretPropsFile.exists()) {
     ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
     ext["sonatypeStagingProfileId"] = System.getenv('SONATYPE_STAGING_PROFILE_ID')
 }
+
 
 publishing {
     publications {

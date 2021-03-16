@@ -1,0 +1,17 @@
+name: Publish
+
+on: [push, pull_request, release]
+
+jobs:
+    publish:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+        -   name: Check out code
+            uses: actions/checkout@v2
+        -   name: Set up JDK 1.8
+            uses: actions/setup-java@v1
+            with:
+                java-version: 1.8
+        -   name: Assemble debug build
+            run: ./gradlew assembleDebug

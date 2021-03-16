@@ -15,8 +15,8 @@
  */
 
 import com.cioccarellia.buildconfig.dependencies.Dependencies
-import com.cioccarellia.buildconfig.switches.Switches
 import com.cioccarellia.buildconfig.model.ModuleArtifactCoordinates
+import com.cioccarellia.buildconfig.switches.Switches
 
 /**
  * Module identifier, used across the project to reference this subproject.
@@ -24,14 +24,23 @@ import com.cioccarellia.buildconfig.model.ModuleArtifactCoordinates
 ext.module_name = "complex_numbers"
 
 /**
- * Deploying Coordinates.
+ * Deploying Coordinates for local module.
  * */
-project.ext.set("module_complex_numbers", new ModuleArtifactCoordinates(
-        "com.cioccarellia",                                             // PUBLISH_GROUP_ID
-        "complexnumbers",                                               // PUBLISH_ARTIFACT_ID
-        "Complex Number & Mathematics Kotlin Library",                  // PUBLISH_ARTIFACT_DESC
-        "https://github.com/cioccarellia/android-library-template",     // PUBLISH_ARTIFACT_WEBSITE
-        "1.0.0"                                                         // PUBLISH_VERSION
+project.ext.set("module_${ext.module_name}", new ModuleArtifactCoordinates(
+        // PUBLISH_GROUP_ID
+        "com.cioccarellia",
+        
+        // PUBLISH_ARTIFACT_ID
+        "complexnumbers",
+        
+        // PUBLISH_ARTIFACT_DESC
+        "Complex Number & Mathematics Kotlin Library",
+        
+        // PUBLISH_ARTIFACT_WEBSITE
+        "https://github.com/cioccarellia/android-library-template",
+        
+        // PUBLISH_VERSION
+        "1.0.0"
 ))
 
 apply from: rootProject.file("scripts/commons/library_config.gradle")
@@ -41,13 +50,13 @@ apply from: rootProject.file("scripts/publishing/publish_mavencentral.gradle")
  * Library-wide dependencies
  * */
 dependencies {
-    compileOnly Dependencies.AndroidX.annotation
-    implementation Dependencies.Kotlin.stdlib
+    compileOnly Dependencies.androidXAnnotation
+    implementation Dependencies.stdlib
     
-    testImplementation Dependencies.Testing.core
-    testImplementation Dependencies.Testing.androidXExtJunit
-    testImplementation Dependencies.Testing.googleTruth
-    testImplementation Dependencies.Testing.espressoCore
+    testImplementation Dependencies.androidXTestCore
+    testImplementation Dependencies.androidXExtJunit
+    testImplementation Dependencies.googleTruth
+    testImplementation Dependencies.espressoCore
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {

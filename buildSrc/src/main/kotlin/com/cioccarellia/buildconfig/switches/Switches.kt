@@ -21,5 +21,5 @@ package com.cioccarellia.buildconfig.switches
 object Switches {
     const val explicitApiModeForLibraryModules = true
     const val sourceSetLabel = "kotlin"
-    val androidPackagingOptionsExclusion = listOf("DebugProbesKt.bin")
+    val androidPackagingOptionsExclusion = listOf("DebugProbesKt.bin", "LICENSE.txt")
 }

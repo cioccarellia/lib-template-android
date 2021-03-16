@@ -19,4 +19,5 @@
 package com.cioccarellia.buildconfig.versions
 
 object Versions {
+
 }
