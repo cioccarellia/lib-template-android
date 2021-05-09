@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("unused")
 
 /**
  * Designed and developed by Andrea Cioccarelli (@cioccarellia)
@@ -16,15 +16,9 @@
  * limitations under the License.
  */
 
-package com.cioccarellia.buildconfig.model
+package com.buildconfig.config
 
-import com.cioccarellia.buildconfig.config.KotlinCompilerConfig
-
-inline fun prepareCoordinate(coordinate: String) = coordinate.apply {
-    removeSuffix(":")
+object KotlinCompilerConfig {
+    const val kotlinVersion = "1.5.0"
+    const val jvmTarget = 1.8
 }
-
-inline fun kotlinDep(coordinates: String) =
-    "${prepareCoordinate(coordinates)}:${KotlinCompilerConfig.kotlinVersion}"
-
-inline fun dep(coordinates: String, version: String) = "${prepareCoordinate(coordinates)}:$version"

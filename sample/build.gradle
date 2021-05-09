@@ -14,12 +14,26 @@
  * limitations under the License.
  */
 
-import com.cioccarellia.buildconfig.dependencies.Dependencies
+
+import com.buildconfig.dependencies.Dependencies
 
 ext.module_name = "sample"
 
 apply from: rootProject.file("scripts/commons/app_config.gradle")
 
+/**
+ * App versioning
+ * */
+android {
+    defaultConfig {
+        versionName "1.0.0-app-sample"
+        versionCode 1
+    }
+}
+
+/**
+ * App dependencies
+ * */
 dependencies {
     implementation project(":complex_numbers")
     
@@ -27,4 +41,3 @@ dependencies {
     implementation Dependencies.constraintLayout
     implementation Dependencies.stdlib
 }
-

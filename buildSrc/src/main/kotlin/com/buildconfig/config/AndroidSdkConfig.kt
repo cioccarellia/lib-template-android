@@ -16,10 +16,15 @@
  * limitations under the License.
  */
 
-package com.cioccarellia.buildconfig.switches
+package com.buildconfig.config
 
-object Switches {
-    const val explicitApiModeForLibraryModules = true
-    const val sourceSetLabel = "kotlin"
-    val androidPackagingOptionsExclusion = listOf("DebugProbesKt.bin", "LICENSE.txt")
+/**
+ * Global Project
+ * */
+object AndroidSdkConfig {
+    const val minSdk: Int = 15
+    const val compileSdk: Int = 30
+
+    const val compileSdkVersion = 29
+    const val compileLibVersion = "29.0.3"
 }

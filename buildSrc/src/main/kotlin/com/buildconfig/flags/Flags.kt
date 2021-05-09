@@ -16,5 +16,7 @@
  * limitations under the License.
  */
 
-object GradleConfig {
+package com.buildconfig.flags
+
+object Flags {
 }

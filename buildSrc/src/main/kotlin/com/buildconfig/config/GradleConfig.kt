@@ -16,22 +16,4 @@
  * limitations under the License.
  */
 
-package com.cioccarellia.buildconfig.dependencies
-
-import com.cioccarellia.buildconfig.model.dep
-import com.cioccarellia.buildconfig.model.kotlinDep
-
-object Plugins {
-    // Gradle Plugin
-    val androidGradlePlugin = dep("com.android.tools.build:gradle", "4.1.2")
-
-    // Kotlin Android Plugin
-    val kotlinGradlePlugin = kotlinDep("org.jetbrains.kotlin:kotlin-gradle-plugin")
-
-    // Dokka Android Plugin
-    val dokkaGradlePlugin = dep("org.jetbrains.dokka:dokka-android-gradle-plugin", "1.4.20")
-
-    // Nexus Staging Plugin
-    val nexusStagingGradlePlugin =
-        dep("io.codearte.gradle.nexus:gradle-nexus-staging-plugin", "0.22.0")
-}
+object GradleConfig

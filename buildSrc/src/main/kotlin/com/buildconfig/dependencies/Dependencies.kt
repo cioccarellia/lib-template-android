@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package com.cioccarellia.buildconfig.dependencies
+package com.buildconfig.dependencies
 
-import com.cioccarellia.buildconfig.model.dep
-import com.cioccarellia.buildconfig.model.kotlinDep
+import com.buildconfig.model.dep
+import com.buildconfig.model.kotlinDep
 
 object Dependencies {
     /*
@@ -36,29 +36,28 @@ object Dependencies {
     val coroutineCore = kotlinDep("org.jetbrains.kotlinx:kotlinx-coroutines-core")
     val coroutineAndroid = kotlinDep("org.jetbrains.kotlinx:kotlinx-coroutines-android")
 
+
     /*
      * AndroidX
      * */
     private const val androidXVersion = "1.3.2"
     val coreKtx = dep("androidx.core:core-ktx", androidXVersion)
 
-    val androidXAnnotation = dep("androidx.annotation:annotation", "1.1.0")
+    val androidXAnnotation = dep("androidx.annotation:annotation", "1.2.0")
     val androidXAppCompat = dep("androidx.appcompat:appcompat", "1.2.0")
 
     private const val constraintLayoutVersion = "2.0.4"
-    val constraintLayout =
-        dep("com.android.support.constraint:constraint-layout", constraintLayoutVersion)
+    val constraintLayout = dep("com.android.support.constraint:constraint-layout", constraintLayoutVersion)
 
     private const val lifecycleVersion = "2.3.0"
     val androidXLiveData = dep("androidx.lifecycle:lifecycle-livedata", lifecycleVersion)
     val androidXViewModel = dep("androidx.lifecycle:lifecycle-viewmodel", lifecycleVersion)
-    val androidXLifecycleExtensions =
-        dep("androidx.lifecycle:lifecycle-extensions", lifecycleVersion)
+    val androidXLifecycleExtensions = dep("androidx.lifecycle:lifecycle-extensions", lifecycleVersion)
+
 
     /*
     * Testing
     * */
-
     private const val testingVersion = "1.3.0"
     val androidXTestCore = dep("androidx.test:core", testingVersion)
     val androidXTestCoreKtx = dep("androidx.test:core-ktx", testingVersion)
@@ -67,27 +66,26 @@ object Dependencies {
     val androidXTestMonitor = dep("androidx.test:monitor", testingVersion)
 
     // JUnit & Truth
-    val junit = dep("junit:junit", "4.12")
-    val mockito = dep("org.mockito:mockito-core", "3.8.0")
+    val junit = dep("junit:junit", "4.13.2")
+    val mockitoCore = dep("org.mockito:mockito-core", "3.9.0")
 
     val androidXExtJunit = dep("androidx.test.ext:junit", "1.1.2")
     val androidXExtTruth = dep("androidx.test.ext:truth", "1.3.0")
-    val googleTruth = dep("com.google.truth:truth", "0.42")
+    val googleTruth = dep("com.google.truth:truth", "1.1.2")
 
     // Espresso dependencies
-    private const val espressoVersion = "3.1.0"
+    private const val espressoVersion = "3.3.0"
     private const val espressoIdlingVersion = "3.3.0"
 
     val espressoCore = dep("androidx.test.espresso:espresso-core", espressoVersion)
     val espressoContrib = dep("androidx.test.espresso:espresso-contrib", espressoVersion)
     val espressoIntents = dep("androidx.test.espresso:espresso-intents", espressoVersion)
-    val espressoAccessibility =
-        dep("androidx.test.espresso:espresso-accessibility", espressoVersion)
+    val espressoAccessibility = dep("androidx.test.espresso:espresso-accessibility", espressoVersion)
     val espressoWeb = dep("androidx.test.espresso:espresso-web", espressoVersion)
-    val espressoIdlingConcurrent =
-        dep("androidx.test.espresso.idling:idling-concurrent", espressoIdlingVersion)
-    val espressoIdlingResources =
-        dep("androidx.test.espresso:espresso-idling-resource", espressoIdlingVersion)
+    val espressoIdlingConcurrent = dep("androidx.test.espresso.idling:idling-concurrent", espressoIdlingVersion)
+    val espressoIdlingResources = dep("androidx.test.espresso:espresso-idling-resource", espressoIdlingVersion)
+
+    val robolectric = dep("org.robolectric:robolectric", "4.5.1")
 
     object Debug {
         val timber = dep("com.jakewharton.timber:timber", "4.7.6")

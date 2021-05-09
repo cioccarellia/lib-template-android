@@ -15,9 +15,9 @@
  */
 
 
-import com.cioccarellia.buildconfig.config.AndroidSdkConfig
-import com.cioccarellia.buildconfig.config.KotlinCompilerConfig
-import com.cioccarellia.buildconfig.switches.Switches
+import com.buildconfig.config.AndroidSdkConfig
+import com.buildconfig.config.KotlinCompilerConfig
+import com.buildconfig.switches.Switches
 
 /**
  * Common code between library and application modules
@@ -36,8 +36,6 @@ android {
     defaultConfig {
         minSdkVersion AndroidSdkConfig.minSdk
         targetSdkVersion AndroidSdkConfig.compileSdk
-        versionName "nope"
-        versionCode 1
     }
     
     sourceSets {
@@ -52,8 +50,7 @@ android {
     }
     
     packagingOptions {
-        Switches.androidPackagingOptionsExclusion.forEach {
-            it
+        Switches.androidPackagingOptionsExclusion.forEach {it
             exclude it
         }
     }

@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.cioccarellia.buildconfig.config.KotlinCompilerConfig
-import com.cioccarellia.buildconfig.dependencies.Plugins
+import com.buildconfig.config.KotlinCompilerConfig
+import com.buildconfig.dependencies.Plugins
 
+apply from: rootProject.file("scripts/custom/versions.gradle")
 apply plugin: 'io.codearte.nexus-staging'
 
 buildscript {
@@ -29,9 +30,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        
-        // Remove as soon as humanly possible
-        jcenter()
+        gradlePluginPortal()
     }
     
     /**
@@ -42,6 +41,7 @@ buildscript {
         classpath Plugins.androidGradlePlugin
         classpath Plugins.kotlinGradlePlugin
         classpath Plugins.nexusStagingGradlePlugin
+        classpath Plugins.versionsGradlePlugin
     }
 }
 
@@ -55,9 +55,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        
-        // Remove as soon as humanly possible
-        jcenter()
+        gradlePluginPortal()
     }
 }
 

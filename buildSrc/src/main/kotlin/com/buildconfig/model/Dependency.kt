@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("NOTHING_TO_INLINE")
 
 /**
  * Designed and developed by Andrea Cioccarelli (@cioccarellia)
@@ -16,15 +16,15 @@
  * limitations under the License.
  */
 
-package com.cioccarellia.buildconfig.repositories
+package com.buildconfig.model
 
-enum class Repos {
-    Google, MavenCentral, @Deprecated("Discontinued")
-    JCenter, JitPack
+import com.buildconfig.config.KotlinCompilerConfig
+
+inline fun prepareCoordinate(coordinate: String) = coordinate.apply {
+    removeSuffix(":")
 }
 
-object Repositories {
-    val activeRepositories = listOf(
-        Repos.Google, Repos.MavenCentral
-    )
-}
+inline fun kotlinDep(coordinates: String) =
+    "${prepareCoordinate(coordinates)}:${KotlinCompilerConfig.kotlinVersion}"
+
+inline fun dep(coordinates: String, version: String) = "${prepareCoordinate(coordinates)}:$version"

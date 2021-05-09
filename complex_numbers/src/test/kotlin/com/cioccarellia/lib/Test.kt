@@ -15,4 +15,13 @@
  */
 package com.cioccarellia.lib
 
-public class Test
+import com.google.common.truth.Truth.assertThat
+import org.junit.Test
+
+public class Test {
+
+    @Test
+    public fun `True that`() {
+        assertThat(true).isTrue()
+    }
+}

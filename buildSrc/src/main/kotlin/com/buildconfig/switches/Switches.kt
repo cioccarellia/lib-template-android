@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package com.cioccarellia.buildconfig.config
+package com.buildconfig.switches
 
-object KotlinCompilerConfig {
-    const val kotlinVersion = "1.4.30"
-    const val jvmTarget = 1.8
-
+object Switches {
+    const val explicitApiModeForLibraryModules = true
+    const val sourceSetLabel = "kotlin"
+    val androidPackagingOptionsExclusion = listOf("DebugProbesKt.bin", "LICENSE.txt")
 }

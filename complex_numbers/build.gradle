@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import com.cioccarellia.buildconfig.dependencies.Dependencies
-import com.cioccarellia.buildconfig.model.ModuleArtifactCoordinates
-import com.cioccarellia.buildconfig.switches.Switches
+import com.buildconfig.dependencies.Dependencies
+import com.buildconfig.model.ModuleArtifactCoordinates
+import com.buildconfig.switches.Switches
 
 /**
  * Module identifier, used across the project to reference this subproject.
@@ -47,16 +47,28 @@ apply from: rootProject.file("scripts/commons/library_config.gradle")
 apply from: rootProject.file("scripts/publishing/publish_mavencentral.gradle")
 
 /**
- * Library-wide dependencies
+ * Library versioning
+ * */
+android {
+    defaultConfig {
+        versionName "1.0.0-library"
+        versionCode 1
+    }
+}
+
+
+/**
+ * Library dependencies
  * */
 dependencies {
     compileOnly Dependencies.androidXAnnotation
     implementation Dependencies.stdlib
     
+    testImplementation Dependencies.junit
     testImplementation Dependencies.androidXTestCore
-    testImplementation Dependencies.androidXExtJunit
+    testImplementation Dependencies.mockitoCore
     testImplementation Dependencies.googleTruth
-    testImplementation Dependencies.espressoCore
+    testImplementation Dependencies.robolectric
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {

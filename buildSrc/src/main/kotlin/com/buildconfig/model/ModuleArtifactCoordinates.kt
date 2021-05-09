@@ -1,4 +1,4 @@
-package com.cioccarellia.buildconfig.model
+package com.buildconfig.model
 
 data class ModuleArtifactCoordinates constructor(
     val PUBLISH_GROUP_ID: String,
