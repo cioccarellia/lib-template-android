@@ -19,12 +19,12 @@
 package com.buildconfig.config
 
 /**
- * Global Project
+ * Global Project Android Config
  * */
 object AndroidSdkConfig {
     const val minSdk: Int = 15
     const val compileSdk: Int = 30
 
-    const val compileSdkVersion = 29
-    const val compileLibVersion = "29.0.3"
+    const val compileSdkVersion = 30
+    const val compileLibVersion = "30.0.2"
 }
