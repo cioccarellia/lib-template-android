@@ -17,7 +17,7 @@
 
 import com.buildconfig.config.AndroidSdkConfig
 import com.buildconfig.config.KotlinCompilerConfig
-import com.buildconfig.switches.Switches
+import com.buildconfig.Switches
 
 /**
  * Common code between library and application modules

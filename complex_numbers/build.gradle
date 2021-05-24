@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import com.buildconfig.dependencies.Dependencies
-import com.buildconfig.model.ModuleArtifactCoordinates
-import com.buildconfig.switches.Switches
+import com.buildconfig.Dependencies
+import com.buildconfig.internal.model.ModuleArtifactCoordinates
+import com.buildconfig.Switches
 
 /**
  * Module identifier, used across the project to reference this subproject.

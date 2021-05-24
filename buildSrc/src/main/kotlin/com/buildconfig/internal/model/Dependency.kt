@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.buildconfig.model
+package com.buildconfig.internal.model
 
 import com.buildconfig.config.KotlinCompilerConfig
 

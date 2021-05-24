@@ -16,23 +16,21 @@
  * limitations under the License.
  */
 
-package com.buildconfig.dependencies
+package com.buildconfig
 
-import com.buildconfig.model.dep
-import com.buildconfig.model.kotlinDep
+import com.buildconfig.internal.model.dep
+import com.buildconfig.internal.model.kotlinDep
 
 object Plugins {
-    // Gradle Plugin
-    val androidGradlePlugin = dep("com.android.tools.build:gradle", "4.2.0")
+    val androidGradlePlugin = dep("com.android.tools.build:gradle", "4.2.1")
 
-    // Kotlin Android Plugin
     val kotlinGradlePlugin = kotlinDep("org.jetbrains.kotlin:kotlin-gradle-plugin")
 
-    // Dokka Android Plugin
     val dokkaGradlePlugin = dep("org.jetbrains.dokka:dokka-android-gradle-plugin", "1.5.0")
 
-    // Nexus Staging Plugin
+    // Nexus OOS integration Plugin
     val nexusStagingGradlePlugin = dep("io.codearte.gradle.nexus:gradle-nexus-staging-plugin", "0.30.0")
 
+    // Dependencies versions checker Gradle Plugin
     val versionsGradlePlugin = dep("com.github.ben-manes:gradle-versions-plugin", "0.38.0")
 }

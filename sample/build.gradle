@@ -15,7 +15,7 @@
  */
 
 
-import com.buildconfig.dependencies.Dependencies
+import com.buildconfig.Dependencies
 
 ext.module_name = "sample"
 

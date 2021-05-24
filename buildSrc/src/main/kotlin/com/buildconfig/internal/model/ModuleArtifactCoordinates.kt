@@ -1,4 +1,4 @@
-package com.buildconfig.model
+package com.buildconfig.internal.model
 
 data class ModuleArtifactCoordinates constructor(
     val PUBLISH_GROUP_ID: String,

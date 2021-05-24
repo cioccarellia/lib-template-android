@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import com.buildconfig.config.KotlinCompilerConfig
-import com.buildconfig.dependencies.Plugins
+import com.buildconfig.Plugins
 
 apply from: rootProject.file("scripts/custom/versions.gradle")
 apply plugin: 'io.codearte.nexus-staging'

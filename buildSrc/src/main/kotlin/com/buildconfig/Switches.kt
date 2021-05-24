@@ -16,7 +16,10 @@
  * limitations under the License.
  */
 
-package com.buildconfig.flags
+package com.buildconfig
 
-object Flags {
+object Switches {
+    const val explicitApiModeForLibraryModules = false
+    const val sourceSetLabel = "kotlin"
+    val androidPackagingOptionsExclusion = listOf("DebugProbesKt.bin", "LICENSE.txt")
 }

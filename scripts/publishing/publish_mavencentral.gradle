@@ -4,8 +4,8 @@ apply plugin: 'signing'
 /**
  * Current module coordinate object which is chosen to be deployed.
  * */
-def currentDeployModule = project.ext.get("module_complex_numbers")
-
+def deployModuleName = "complex_numbers"
+def currentDeployModule = project.ext.get("module_${deployModuleName}")
 
 task androidSourcesJar(type: Jar) {
     archiveClassifier.set('sources')

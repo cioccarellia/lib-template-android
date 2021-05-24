@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package com.buildconfig.dependencies
+package com.buildconfig
 
-import com.buildconfig.model.dep
-import com.buildconfig.model.kotlinDep
+import com.buildconfig.internal.model.dep
+import com.buildconfig.internal.model.kotlinDep
 
 object Dependencies {
     /*
@@ -67,7 +67,7 @@ object Dependencies {
 
     // JUnit & Truth
     val junit = dep("junit:junit", "4.13.2")
-    val mockitoCore = dep("org.mockito:mockito-core", "3.9.0")
+    val mockitoCore = dep("org.mockito:mockito-core", "3.10.0")
 
     val androidXExtJunit = dep("androidx.test.ext:junit", "1.1.2")
     val androidXExtTruth = dep("androidx.test.ext:truth", "1.3.0")
