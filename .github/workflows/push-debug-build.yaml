@@ -4,7 +4,7 @@ on: [push, pull_request, release]
 
 jobs:
     publish:
-    name: Debug Build
+        name: Debug Build
     runs-on: ubuntu-latest
     steps:
         -   name: Check out code
