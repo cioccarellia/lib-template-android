@@ -26,5 +26,5 @@ object AndroidSdkConfig {
     const val compileSdk: Int = 30
 
     const val compileSdkVersion = 30
-    const val compileLibVersion = "30.0.2"
+    const val buildToolsVersion = "30.0.2"
 }

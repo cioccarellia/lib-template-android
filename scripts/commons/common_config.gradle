@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 import com.buildconfig.config.AndroidSdkConfig
 import com.buildconfig.config.KotlinCompilerConfig
 import com.buildconfig.Switches
@@ -26,7 +25,7 @@ apply plugin: "kotlin-android"
 
 android {
     compileSdkVersion AndroidSdkConfig.compileSdkVersion
-    buildToolsVersion AndroidSdkConfig.compileLibVersion
+    buildToolsVersion AndroidSdkConfig.buildToolsVersion
     
     compileOptions {
         sourceCompatibility KotlinCompilerConfig.jvmTarget

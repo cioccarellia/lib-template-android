@@ -19,6 +19,6 @@
 package com.buildconfig.config
 
 object KotlinCompilerConfig {
-    const val kotlinVersion = "1.5.0"
+    const val kotlinVersion = "1.5.31"
     const val jvmTarget = 1.8
 }

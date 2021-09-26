@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-import com.buildconfig.Dependencies
+
 import com.buildconfig.internal.model.ModuleArtifactCoordinates
 import com.buildconfig.Switches
+import com.buildconfig.config.KotlinCompilerConfig
 
 /**
  * Module identifier, used across the project to reference this subproject.
@@ -61,14 +62,16 @@ android {
  * Library dependencies
  * */
 dependencies {
-    compileOnly Dependencies.androidXAnnotation
-    implementation Dependencies.stdlib
+    def kotlinVersion = KotlinCompilerConfig.kotlinVersion
     
-    testImplementation Dependencies.junit
-    testImplementation Dependencies.androidXTestCore
-    testImplementation Dependencies.mockitoCore
-    testImplementation Dependencies.googleTruth
-    testImplementation Dependencies.robolectric
+    compileOnly "androidx.annotation:annotation:1.2.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "androidx.test:core:1.4.0"
+    testImplementation "org.mockito:mockito-core:3.12.4"
+    testImplementation "com.google.truth:truth:1.1.3"
+    testImplementation "org.robolectric:robolectric:4.6.1"
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {

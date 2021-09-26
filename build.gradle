@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import com.buildconfig.config.KotlinCompilerConfig
-import com.buildconfig.Plugins
 
 apply from: rootProject.file("scripts/custom/versions.gradle")
 apply plugin: 'io.codearte.nexus-staging'
@@ -38,10 +37,10 @@ buildscript {
      * to build your project.
      */
     dependencies {
-        classpath Plugins.androidGradlePlugin
-        classpath Plugins.kotlinGradlePlugin
-        classpath Plugins.nexusStagingGradlePlugin
-        classpath Plugins.versionsGradlePlugin
+        classpath "com.android.tools.build:gradle:7.0.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${KotlinCompilerConfig.kotlinVersion}"
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.30.0"
+        classpath "com.github.ben-manes:gradle-versions-plugin:0.39.0"
     }
 }
 
@@ -61,13 +60,15 @@ allprojects {
 
 subprojects {
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-        sourceCompatibility = KotlinCompilerConfig.jvmTarget
-        targetCompatibility = KotlinCompilerConfig.jvmTarget
+        // Applying kotlin compiler settings
         
-        // Kotlin JVM-target version
+        // Kotlin compiler JVM-target version
         kotlinOptions {
             jvmTarget = KotlinCompilerConfig.jvmTarget
             freeCompilerArgs += ["-module-name", project.path.replace(':', '')]
         }
+        
+        sourceCompatibility = KotlinCompilerConfig.jvmTarget
+        targetCompatibility = KotlinCompilerConfig.jvmTarget
     }
 }
