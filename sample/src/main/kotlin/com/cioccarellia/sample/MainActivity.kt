@@ -25,6 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val q = Quaternion(7f, 6f, -3f, 2f)
+        val q = Quaternion(7.0, 6.0, -3.5, 2.0)
     }
 }

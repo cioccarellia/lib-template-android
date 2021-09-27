@@ -18,7 +18,27 @@
 
 package com.buildconfig.config
 
+import org.apache.tools.ant.util.JavaEnvUtils.*
+
 object KotlinCompilerConfig {
+    // Should match kotlin dependencies and AS plugin.
     const val kotlinVersion = "1.5.31"
-    const val jvmTarget = 1.8
+
+    // Selected project-wide jvm versions.
+    private const val jvmVersionIndex = indexJava_1_8
+
+    val jvmTargetInt: Number = versions[jvmVersionIndex].first
+    val jvmTargetStr: String = versions[jvmVersionIndex].second
 }
+
+
+// JVM version options. Change index to pick.
+private const val indexJava_1_7 = 0
+private const val indexJava_1_8 = 1
+private const val indexJava_11 = 2
+
+private val versions = arrayOf<Pair<Number, String>>(
+    1.7 to JAVA_1_7,
+    1.8 to JAVA_1_8,
+    11 to JAVA_11
+)

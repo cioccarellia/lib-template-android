@@ -26,22 +26,31 @@ ext.module_name = "complex_numbers"
 
 /**
  * Deploying Coordinates for local module.
+ *
+ * You should modify per-module:
+ *   - PUBLISH_GROUP_ID
+ *   - PUBLISH_ARTIFACT_ID
+ *   - PUBLISH_ARTIFACT_DESC
+ *   - PUBLISH_ARTIFACT_WEBSITE
+ *   - PUBLISH_VERSION
+ *
+ * And keep items in this precise order
  * */
 project.ext.set("module_${ext.module_name}", new ModuleArtifactCoordinates(
         // PUBLISH_GROUP_ID
         "com.cioccarellia",
         
         // PUBLISH_ARTIFACT_ID
-        "complexnumbers",
+        "complex_numbers",
+        
+        // PUBLISH_VERSION
+        "1.0.0",
         
         // PUBLISH_ARTIFACT_DESC
         "Complex Number & Mathematics Kotlin Library",
         
         // PUBLISH_ARTIFACT_WEBSITE
-        "https://github.com/cioccarellia/android-library-template",
-        
-        // PUBLISH_VERSION
-        "1.0.0"
+        "https://github.com/cioccarellia/android-library-template"
 ))
 
 apply from: rootProject.file("scripts/commons/library_config.gradle")
@@ -52,8 +61,8 @@ apply from: rootProject.file("scripts/publishing/publish_mavencentral.gradle")
  * */
 android {
     defaultConfig {
-        versionName "1.0.0-library"
-        versionCode 1
+        versionName "1.0.0-library-module"
+        versionCode 3
     }
 }
 

@@ -13,14 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@file:Suppress("EnumEntryName", "UNUSED_PARAMETER")
+@file:Suppress("EnumEntryName", "UNUSED_PARAMETER", "unused", "RedundantVisibilityModifier")
 
 package com.cioccarellia.lib
 
-public typealias Real = Float
+public typealias Real = Double
 
 public enum class VectorSpaceBase {
     `1`, i, j, k
 }
 
-public class Quaternion(a: Real, b: Real, c: Real, d: Real)
+public class Quaternion(
+    val a: Real,
+    val b: Real,
+    val c: Real,
+    val d: Real
+) {
+    val form: String
+        get() = "$a + $b ${VectorSpaceBase.i} + $c ${VectorSpaceBase.j} + $d ${VectorSpaceBase.k}"
+}
