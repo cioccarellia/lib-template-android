@@ -62,12 +62,12 @@ subprojects {
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
         // Kotlin compiler JVM-target version (as string)
         kotlinOptions {
-            jvmTarget = KotlinCompilerConfig.jvmTargetStr
+            jvmTarget = KotlinCompilerConfig.jvmTarget
             freeCompilerArgs += ["-module-name", project.path.replace(':', '')]
         }
     
         // Kotlin compiler JVM-target version (as int)
-        sourceCompatibility = KotlinCompilerConfig.jvmTargetInt
-        targetCompatibility = KotlinCompilerConfig.jvmTargetInt
+        sourceCompatibility = KotlinCompilerConfig.jvmTarget
+        targetCompatibility = KotlinCompilerConfig.jvmTarget
     }
 }

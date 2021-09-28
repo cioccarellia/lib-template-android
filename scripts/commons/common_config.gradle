@@ -28,12 +28,12 @@ android {
     buildToolsVersion AndroidSdkConfig.buildToolsVersion
     
     compileOptions {
-        sourceCompatibility KotlinCompilerConfig.jvmTargetInt
-        targetCompatibility KotlinCompilerConfig.jvmTargetInt
+        sourceCompatibility KotlinCompilerConfig.jvmTarget
+        targetCompatibility KotlinCompilerConfig.jvmTarget
     }
     
     kotlinOptions {
-        jvmTarget = KotlinCompilerConfig.jvmTargetStr
+        jvmTarget = KotlinCompilerConfig.jvmTarget
     }
     
     defaultConfig {
