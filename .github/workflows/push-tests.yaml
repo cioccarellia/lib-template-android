@@ -21,4 +21,4 @@ jobs:
               run: ./gradlew build --stacktrace
 
             - name: "Run tests"
-              run: ./gradlew test # testDebug or testRelease
+              run: ./gradlew test # testDebug or testRelease (if you have)

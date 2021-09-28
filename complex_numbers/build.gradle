@@ -14,27 +14,26 @@
  * limitations under the License.
  */
 
-
 import com.buildconfig.internal.model.ModuleArtifactCoordinates
 import com.buildconfig.Switches
 import com.buildconfig.config.KotlinCompilerConfig
 
 /**
- * Module identifier, used across the project to reference this subproject.
+ * Module identifier, used across the project to reference this module.
+ * This should match the directory name this file is in.
  * */
 ext.module_name = "complex_numbers"
 
 /**
  * Deploying Coordinates for local module.
  *
- * You should modify per-module:
+ * You should modify (ona a per-module basis):
  *   - PUBLISH_GROUP_ID
  *   - PUBLISH_ARTIFACT_ID
  *   - PUBLISH_ARTIFACT_DESC
  *   - PUBLISH_ARTIFACT_WEBSITE
  *   - PUBLISH_VERSION
- *
- * And keep items in this precise order
+ * Accordingly to your library publication artifact(s)
  * */
 project.ext.set("module_${ext.module_name}", new ModuleArtifactCoordinates(
         // PUBLISH_GROUP_ID
@@ -53,8 +52,12 @@ project.ext.set("module_${ext.module_name}", new ModuleArtifactCoordinates(
         "https://github.com/cioccarellia/android-library-template"
 ))
 
+// Android library script
 apply from: rootProject.file("scripts/commons/library_config.gradle")
+
+// MavenCentral publication script
 apply from: rootProject.file("scripts/publishing/publish_mavencentral.gradle")
+
 
 /**
  * Library versioning
@@ -73,9 +76,11 @@ android {
 dependencies {
     def kotlinVersion = KotlinCompilerConfig.kotlinVersion
     
+    // Kotlin essential dependencies
     compileOnly "androidx.annotation:annotation:1.2.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     
+    // Testing dependencies
     testImplementation "junit:junit:4.13.2"
     testImplementation "androidx.test:core:1.4.0"
     testImplementation "org.mockito:mockito-core:3.12.4"
@@ -83,9 +88,11 @@ dependencies {
     testImplementation "org.robolectric:robolectric:4.6.1"
 }
 
+
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
     kotlinOptions {
         if (Switches.explicitApiModeForLibraryModules) {
+            // Explicit API Mode, configure in Switches
             freeCompilerArgs += [
                     //'-progressive',
                     '-Xexplicit-api=strict',

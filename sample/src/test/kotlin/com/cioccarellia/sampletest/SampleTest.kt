@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 /**
  * Designed and developed by Andrea Cioccarelli (@cioccarellia)
  *
@@ -15,5 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.cioccarellia.sampletest
 
-object GradleConfig
+import com.google.common.truth.Truth.assertThat
+import org.junit.Test
+
+public class SampleTest {
+
+    @Test
+    public fun `Sample true that`() {
+        assertThat(8 == 2.shl(2)).isTrue()
+    }
+}
