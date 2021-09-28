@@ -27,6 +27,17 @@ Replace every occurrence of `complex_numbers` inside that module with your new m
 
 Configure `KotlinCompilerConfig` and `AndroidSdkConfig`.
 
+# Credentials
+Fill in in `local.properties`
+```
+signing.keyId=                # Your GPG Key ID
+signing.password=             # Key Passphrase
+signing.secretKeyRingFile=    # Key file path
+ossrhUsername=                # Account Username
+ossrhPassword=                # Account Password
+sonatypeStagingProfileId=
+stagingProfileId=
+```
 
 ## sources
 This template is available and would not be possible without the hard work of:
