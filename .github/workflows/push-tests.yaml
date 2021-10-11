@@ -30,7 +30,7 @@ jobs:
             -   name: Unit tests results
                 uses: actions/upload-artifact@v1
                 with:
-                    name: unit-tests-results
+                    name: test-report
                     path: complex_numbers/build/reports/tests/testDebugUnitTest/
 
     link:
@@ -55,5 +55,5 @@ jobs:
             -   name: Lint results
                 uses: actions/upload-artifact@v1
                 with:
-                    name: app
+                    name: lint-report
                     path: complex_numbers/build/reports/

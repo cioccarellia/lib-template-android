@@ -43,5 +43,5 @@ jobs:
             -   name: Upload APK
                 uses: actions/upload-artifact@v1
                 with:
-                    name: apk
+                    name: debug-apk-artifact
                     path: sample/build/outputs/apk/debug/app-debug.apk
