@@ -20,6 +20,8 @@ jobs:
                 uses: actions/setup-java@v1
                 with:
                     java-version: '11'
+            -   name: System Information         
+                run: printf "\nKernel:\n " && uname -a && printf "\n\nMemory:\n " && free -h && printf "\n\nStorage:\n" && df -h && ls -la && pwd
 
             -   name: Build
                 run: ./gradlew build --stacktrace
@@ -45,6 +47,9 @@ jobs:
                 uses: actions/setup-java@v1
                 with:
                     java-version: '11'
+
+            -   name: System Information         
+                run: printf "\nKernel:\n " && uname -a && printf "\n\nMemory:\n " && free -h && printf "\n\nStorage:\n" && df -h && ls -la && pwd
 
             -   name: Build
                 run: ./gradlew build --stacktrace
