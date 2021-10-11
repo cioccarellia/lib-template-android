@@ -1,5 +1,8 @@
 name: Run Tests
 
+# Replace:
+#    - `complex_numbers` with your library module name
+
 on:
     push:
     pull_request:
@@ -28,10 +31,10 @@ jobs:
                 uses: actions/upload-artifact@v1
                 with:
                     name: unit-tests-results
-                    path: complex_numbers/build/reports/tests/testDebugUnitTest/index.html
+                    path: complex_numbers/build/reports/tests/testDebugUnitTest/
 
     link:
-        name: Run Tests
+        name: Lint
         runs-on: ubuntu-latest
 
         steps:
@@ -53,4 +56,4 @@ jobs:
                 uses: actions/upload-artifact@v1
                 with:
                     name: app
-                    path: complex_numbers/build/reports/lint-results-debug.html
+                    path: complex_numbers/build/reports/
