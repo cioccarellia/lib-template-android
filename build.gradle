@@ -37,7 +37,7 @@ buildscript {
      * to build your project.
      */
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.2"
+        classpath "com.android.tools.build:gradle:7.0.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${KotlinCompilerConfig.kotlinVersion}"
         classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.30.0"
         classpath "com.github.ben-manes:gradle-versions-plugin:0.39.0"

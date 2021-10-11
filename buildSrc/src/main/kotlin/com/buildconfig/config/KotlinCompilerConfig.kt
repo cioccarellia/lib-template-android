@@ -25,6 +25,6 @@ object KotlinCompilerConfig {
     // Should match kotlin dependencies and AS plugin.
     const val kotlinVersion = "1.5.31"
 
-    // Selected project-wide jvm versions.
+    // Selected project-wide Java compiled code version.
     private val jvmTarget = JavaVersion.VERSION_1_8
 }
