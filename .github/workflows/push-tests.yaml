@@ -1,8 +1,5 @@
 name: Run Tests
 
-# Replace:
-#    - `complex_numbers` with your library module name
-
 on:
     push:
     pull_request:
