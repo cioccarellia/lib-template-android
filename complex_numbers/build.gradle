@@ -47,7 +47,7 @@ project.ext.set("module_${ext.module_name}", new ModuleArtifactCoordinates(
         "Complex Number & Mathematics Kotlin Library",
         
         // PUBLISH_ARTIFACT_WEBSITE
-        "https://github.com/cioccarellia/android-library-template"
+        "https://github.com/cioccarellia/lib-template-android"
 ))
 
 // Android library script
