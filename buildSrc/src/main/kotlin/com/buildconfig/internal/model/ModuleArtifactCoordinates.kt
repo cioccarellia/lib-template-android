@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.buildconfig.internal.model
 
 data class ModuleArtifactCoordinates constructor(

@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 /**
  * Designed and developed by Andrea Cioccarelli (@cioccarellia)
  *
@@ -15,16 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.cioccarellia.sampletest
 
-package com.buildconfig.config
+import com.cioccarellia.lib.ComplexNumber
+import com.google.common.truth.Truth.assertThat
+import org.junit.Test
 
-import org.apache.tools.ant.util.JavaEnvUtils.*
-import org.gradle.api.JavaVersion
+class ComplexNumberTest {
 
-object KotlinCompilerConfig {
-    // Should match kotlin dependencies and AS plugin.
-    const val kotlinVersion = "1.5.31"
-
-    // Selected project-wide Java compiled code version.
-    private val jvmTarget = JavaVersion.VERSION_1_8
+    @Test
+    fun conjugate() {
+        assertThat(
+            ComplexNumber(1.0, 2.0)
+                .conjugate()
+                .imaginaryPart
+        ).isEqualTo(-2.0)
+    }
 }

@@ -13,22 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@file:Suppress("EnumEntryName", "UNUSED_PARAMETER", "unused", "RedundantVisibilityModifier")
+@file:Suppress("EnumEntryName", "unused", "RedundantVisibilityModifier")
 
 package com.cioccarellia.lib
 
 public typealias Real = Double
 
-public enum class VectorSpaceBase {
-    `1`, i, j, k
+public data class ComplexNumber(
+    val realPart: Real,
+    val imaginaryPart: Real
+) {
+    public constructor(realPart: Int, imaginaryPart: Int) : this(realPart.toDouble(), imaginaryPart.toDouble())
+
+    public fun conjugate(): ComplexNumber = copy(imaginaryPart = -imaginaryPart)
+
+    override fun toString(): String {
+        return when {
+            imaginaryPart >= 0 -> "$realPart + ${imaginaryPart}i"
+            else -> "$realPart - ${-imaginaryPart}i"
+        }
+    }
+
+    public companion object {
+        public fun origin(): ComplexNumber = ComplexNumber(0,0)
+    }
 }
 
-public class Quaternion(
-    val a: Real,
-    val b: Real,
-    val c: Real,
-    val d: Real
-) {
-    val form: String
-        get() = "$a + $b ${VectorSpaceBase.i} + $c ${VectorSpaceBase.j} + $d ${VectorSpaceBase.k}"
-}
+public fun realPart(z: ComplexNumber): Real = z.realPart
+public fun imaginaryPart(z: ComplexNumber): Real = z.imaginaryPart
