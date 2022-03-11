@@ -12,7 +12,7 @@ This project is meant to be a complete yet minimal template to create new androi
 
 It is a modular and functional baseline to build a library from, instead of starting from scratch and investing time adjusting all the minor details and options (the main objective is to give a ready-to-code project, so that you can focus on the project iself instead of its infrastructure).
 
-It comes configured with **multi module support** (`complex_numbers` is meant to be the library, and `sample` the test application), **testing** (Configured on both modules), **custom Android Studio configurations** (AAR build, signing, deployment, updates, testing), **MavenCentral deployment utilities** and **github workflows** out of the box.
+It comes preconfigured with **multi module support** (`complex_numbers` is meant to be the library, and `sample` the test application), **testing** (Configured on both modules), **custom Android Studio configurations** (AAR build, signing, deployment, updates, testing), **MavenCentral deployment utilities** and **github workflows** out of the box.
 
 In order to keep the project simple, there is really *nothing* inside it, it is strictly gradle, vcs, deploying, scripting and testing structure, which is meant to encompass your library's code.
 
@@ -39,7 +39,7 @@ Repeat the process for the `:sample` module if necessary.
 
 At this point you have the template configured and ready to be worked on. 
 
-It is recommended to run the action `dependencyUpdates` to check what is updated and what not (Gradle version, plugin, kotlin version and dependencies).
+It is recommended to run `dependencyUpdates` to check what is updated and what not (Gradle version, plugin, kotlin version and dependencies).
 
 # Github Workflows
 There are a few workflows what work out of the box:
@@ -48,8 +48,8 @@ There are a few workflows what work out of the box:
 - Publishing on MavenCentral through github releases [off]
 
 # Deploying
-If you intend to deploy your library to MavenCentral (assuming your accounts and GPS keys are correctly configured, more detail in the guide below) you can do it in two different ways:
-- Via local commands (the project is equipped with a dependency to deploy AARs). The Android Studio action is called `publishReleasePublicationToSonatypeRepository`. 
+If you intend to deploy your library to MavenCentral (assuming your accounts and GPG keys are correctly configured, more detail in the guide below) you can do it in two different ways:
+- Via local commands (the project is equipped with a dependency to deploy AARs). The Gradle task is called `publishReleasePublicationToSonatypeRepository`. 
   Your data in this case has to be filled in `local.properties`, to be kept off vcs, and it naturally must match your publication data for the deployment to work.
     ```
     signing.keyId=                # Your GPG Key ID
