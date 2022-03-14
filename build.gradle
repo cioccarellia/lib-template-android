@@ -2,7 +2,7 @@ apply from: rootProject.file("scripts/custom/versions.gradle")
 apply plugin: 'io.codearte.nexus-staging'
 
 buildscript {
-    // Global project-wide kotlin version
+    // Project-wide variables
     ext {
         kotlin_version = "1.6.10"
     }
@@ -15,6 +15,8 @@ buildscript {
         google()
         mavenCentral()
         gradlePluginPortal()
+        // maven { url "https://jitpack.io"  }
+        // jcenter()
     }
     
     /**
@@ -22,11 +24,17 @@ buildscript {
      * to build your project.
      */
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.4"
+        classpath "com.android.tools.build:gradle:7.1.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.30.0"
+        
+        // Dependency update checking plugin
         classpath "com.github.ben-manes:gradle-versions-plugin:0.42.0"
+        
+        // Hilt DI plugin
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.41'
+    
+        // Plugin to deploy library modules
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.30.0"
     }
 }
 
@@ -41,6 +49,8 @@ allprojects {
         google()
         mavenCentral()
         gradlePluginPortal()
+        // maven { url "https://jitpack.io"  }
+        // jcenter()
     }
 }
 

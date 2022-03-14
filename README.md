@@ -10,45 +10,49 @@
 # lib-template-android
 This project is meant to be a complete yet minimal template to create new android libraries from scratch.
 
-It is a modular and functional baseline to build a library from, instead of starting from scratch and investing time adjusting all the minor details and options (the main objective is to give a ready-to-code project, so that you can focus on the project iself instead of its infrastructure).
+It is a modular and functional baseline to build a library from, instead of starting from square one and investing time adjusting all the minor details and options (the main objective is to give a ready-to-code project, so that you can focus on the project itself instead of its infrastructure).
 
-It comes preconfigured with **multi module support** (`complex_numbers` is meant to be the library, and `sample` the test application), **testing** (Configured on both modules), **custom Android Studio configurations** (AAR build, signing, deployment, updates, testing), **MavenCentral deployment utilities** and **github workflows** out of the box.
+It comes preconfigured with **multi module support** (`complex_numbers` is meant to be the library, and `sample` the attached application), **testing** (Already configured on both modules), custom **Android Studio configurations** (AAR builds, signing, deployment, updates, testing and remote actions), **MavenCentral deployment utilities** and **github workflows** out of the box.
 
-In order to keep the project simple, there is really *nothing* inside it, it is strictly gradle, vcs, deploying, scripting and testing structure, which is meant to encompass your library's code.
+In order to keep the project simple, there is really *nothing* inside it, it is strictly gradle, vcs, deploying, scripting and testing structure, which should encompass your library's/application's code.
 
 The project contains 3 modules:
-- `complex_numbers`: This is the library module. It implements [Complex Numbers](https://en.wikipedia.org/wiki/Complex_number) as a showcase. This is the module that should be deployed.
-- `sample`: This is a blank Android app (it depends directly on `:complex_numbers`), ideally for prototyping purposes.
-- `buildSrc`: This module contains shared gradle configuration files, and can be customized.
+- `complex_numbers`: This is the library module. It implements [Complex Numbers](https://en.wikipedia.org/wiki/Complex_number) as a showcase. This is the module that should eventually be deployed.
+- `sample`: This is a blank Android app (it depends directly on `:complex_numbers`), ideally for prototyping/emulation purposes.
+- `buildSrc`: This module contains shared gradle configuration files, and can be customized to fit your needs.
 
 # Versions and Specifications
-The project depends on gradle 7.4.1. 
-You need JDK Version 11 (>=) to build and use this project. 
+The project depends on gradle 7.4.1.
+You need JDK Version 11 (>=) to build and use this project.
 It targets java version 8.
 
 # Setup
 Import the project in Android Studio and let it sync and build.
 
-First thing, you want to be renaming `:complex_numbers` to your library name. To achieve this, follow:
-1. Rename `complex_numbers` occurrences in gradle files (`settings.gradle`, `sample/build.gradle`, `complex_numbers/build.gradle`, `publish_mavencentral.gradle`);
-2. Rename `complex_numbers` occurrences in github workflow files (`.github/workflows/push_tests.yaml`);
-3. Finally, rename the module. This can be done via Right click on the module name -> Refactor -> Rename -> Rename Module;
-4. Refactor package names & comments to match your library/author.
+There will be a few TODOs scattered throughout the project for things you should be modifying/adding/deleting.
+
+First thing first, you want to be renaming `:complex_numbers` to your library name. To achieve this, follow these 4 steps:
+1. Rename `complex_numbers` occurrences in gradle files (namely in `settings.gradle`, `sample/build.gradle`, `complex_numbers/build.gradle`, and optionally in `publish_mavencentral.gradle`). Run a *Find In Files* search for "complex_numbers" if you want to automate this;
+2. Rename `complex_numbers` occurrences in github workflow files (namely in `.github/workflows/push_tests.yaml`);
+3. Rename the library module. This can be done via Right click on the module name -> Refactor -> Rename -> Rename Module, or from the Project Structure UI;
+4. Refactor package names, copyright & comments to match your library/author.
 
 Repeat the process for the `:sample` module if necessary.
 
-At this point you have the template configured and ready to be worked on. 
+Create more library/app modules if necessary, by copying the already existing ones.
+
+At this point you have the template up and running, ready to be worked on. 
 
 It is recommended to run `dependencyUpdates` to check what is updated and what not (Gradle version, plugin, kotlin version and dependencies).
 
 # Github Workflows
-There are a few workflows what work out of the box:
-- Build & APK generation on push [on]
-- Test execution on push [on]
-- Publishing on MavenCentral through github releases [off]
+The project contains 3 github workflows.
+- Build & APK generation on push & pull_request [on by default]
+- Test execution on push & pull_request [on by default]
+- Publishing on MavenCentral on release creation [off by default]
 
 # Deploying
-If you intend to deploy your library to MavenCentral (assuming your accounts and GPG keys are correctly configured, more detail in the guide below) you can do it in two different ways:
+If you intend to deploy your library to MavenCentral (assuming your accounts and GPG keys are correctly configured, more (required to understand) detail in the guides below) you can do it in two different ways:
 - Via local commands (the project is equipped with a dependency to deploy AARs). The Gradle task is called `publishReleasePublicationToSonatypeRepository`. 
   Your data in this case has to be filled in `local.properties`, to be kept off vcs, and it naturally must match your publication data for the deployment to work.
     ```
@@ -57,8 +61,8 @@ If you intend to deploy your library to MavenCentral (assuming your accounts and
     signing.secretKeyRingFile=    # Your GPG Key file path
     ossrhUsername=                # Account Username
     ossrhPassword=                # Account Password
-    sonatypeStagingProfileId=
-    stagingProfileId=
+    sonatypeStagingProfileId=     # These two shoudld match, they are your profile id.
+    stagingProfileId=             # These two shoudld match, they are your profile id.
     ```
 
 
@@ -69,8 +73,12 @@ If you intend to deploy your library to MavenCentral (assuming your accounts and
     SIGNING_KEY_ID                # Your GPG Key ID
     SIGNING_PASSWORD              # Your Key Passphrase
     SIGNING_SECRET_KEY_RING_FILE  # Your GPG Key file path
-    SONATYPE_STAGING_PROFILE_ID
+    SONATYPE_STAGING_PROFILE_ID   # These two shoudld match, they are your profile id.
     ```
+
+The deployment utility which comes with the project works with serial 1-module deployment. This means that if you have multiple modules, you can:
+- Create and customize different publishing gradle files (like `scripts/publishing/publish_mavencentral.gradle`), one for each module;
+- Manually change parameters on that one file, and run one publishing operation for each module.
 
 ## Sources
 This template is available and would not be possible without the hard work of:

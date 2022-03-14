@@ -9,6 +9,7 @@ plugins {
 }
 
 // Module
+// TODO update module name & data according to your project
 ext.module_name = "sample"
 
 // Android app script

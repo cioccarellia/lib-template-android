@@ -2,6 +2,8 @@
  * App-only configuration
  * */
 apply plugin: "com.android.application"
+
+// TODO update sample package name according to your project
 android.defaultConfig.applicationId = "com.cioccarellia.buildsample"
 
 apply from: rootProject.file("scripts/commons/common_config.gradle")

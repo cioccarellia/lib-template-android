@@ -20,6 +20,7 @@ import com.buildconfig.internal.model.ModuleArtifactCoordinates
  * Module identifier, used across the project to reference this module.
  * This should match the directory name this file is in.
  * */
+// TODO update module name & data according to your project
 ext.module_name = "complex_numbers"
 
 /**
@@ -33,6 +34,8 @@ ext.module_name = "complex_numbers"
  *   - PUBLISH_VERSION
  * Accordingly to your library publication artifact(s)
  * */
+
+// TODO update module artifact coordinates according to your project
 project.ext.set("module_${ext.module_name}", new ModuleArtifactCoordinates(
         // PUBLISH_GROUP_ID
         "com.cioccarellia",

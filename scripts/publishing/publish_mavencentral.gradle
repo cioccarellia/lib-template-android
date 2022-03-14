@@ -4,7 +4,10 @@ apply plugin: 'signing'
 /**
  * Current module coordinate object which is chosen to be deployed.
  * */
+// TODO rename `deployModuleName` to the target module for deployment.
 def deployModuleName = "complex_numbers"
+
+// Do not edit this
 def currentDeployModule = project.ext.get("module_${deployModuleName}")
 
 task androidSourcesJar(type: Jar) {
@@ -85,6 +88,7 @@ publishing {
                 url = currentDeployModule.PUBLISH_ARTIFACT_WEBSITE
                 
                 licenses {
+                    // TODO update license according to your project
                     license {
                         name = 'APACHE LICENSE'
                         url = 'https://github.com/cioccarellia/lib-template-android/blob/master/LICENSE.md'
@@ -92,6 +96,7 @@ publishing {
                 }
                 
                 developers {
+                    // TODO update developer(s) data according to your project
                     developer {
                         id = 'cioccarellia'
                         name = 'Andrea Cioccarelli'
@@ -100,6 +105,7 @@ publishing {
                 }
                 
                 scm {
+                    // TODO update connection parameters according to your project
                     connection = 'scm:git:github.com/cioccarellia/lib-template-android.git'
                     developerConnection = 'scm:git:ssh://github.com/cioccarellia/lib-template-android.git'
                     url = 'https://github.com/cioccarellia/lib-template-android/tree/main'
