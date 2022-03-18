@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://app.codacy.com/manual/lib-template-android/dashboard"><img src="https://app.codacy.com/project/badge/Grade/1ba2dd5e557849ab98ad6d564cfadc11" alt="Codacy"></a>
-  <a href="https://kotlinlang.org/docs/releases.html"><img src="https://img.shields.io/badge/kotlin-1.6.10-orange.svg" alt="Kotlin"></a>
+  <a href="https://kotlinlang.org/docs/releases.html"><img src="https://img.shields.io/badge/kotlin-1.6.10-orange.svg" alt="Kotlin"></a>[README](assets/README.md)
   <a href="https://gradle.org/releases/"><img src="https://img.shields.io/badge/gradle-7.4.1-102f39.svg" alt="Gradle version"></a>
   <a href="https://source.android.com/setup/start/build-numbers"><img src="https://img.shields.io/badge/min-15-00e676.svg" alt="Android Min Sdk"></a>
   <a href="https://source.android.com/setup/start/build-numbers"><img src="https://img.shields.io/badge/compile-31-00e676.svg" alt="Android Compile Version"></a>
@@ -31,11 +31,13 @@ Import the project in Android Studio and let it sync and build.
 
 There will be a few TODOs scattered throughout the project for things you should be modifying/adding/deleting.
 
-First thing first, you want to be renaming `:complex_numbers` to your library name. To achieve this, follow these 4 steps:
-1. Rename `complex_numbers` occurrences in gradle files (namely in `settings.gradle`, `sample/build.gradle`, `complex_numbers/build.gradle`, and optionally in `publish_mavencentral.gradle`). Run a *Find In Files* search for "complex_numbers" if you want to automate this;
+First thing first, you want to be renaming `:complex_numbers` to your library name. To achieve this, follow these 5 steps:
+1. Rename `complex_numbers` occurrences in gradle files (namely in `sample/build.gradle`, `complex_numbers/build.gradle`, and optionally in `publish_mavencentral.gradle`). 
+   Run a *Find In Files* search for "complex_numbers" if you want to automate this. Leave it as it is inside `settings.gradle`;
 2. Rename `complex_numbers` occurrences in github workflow files (namely in `.github/workflows/push_tests.yaml`);
 3. Rename the library module. This can be done via Right click on the module name -> Refactor -> Rename -> Rename Module, or from the Project Structure UI;
-4. Refactor package names, copyright & comments to match your library/author.
+4. Rename `complex_numbers` occurrences in `settings.gradle`;
+5. Refactor package names, copyright & comments to match your library/author.
 
 Repeat the process for the `:sample` module if necessary.
 

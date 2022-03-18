@@ -3,6 +3,7 @@ package com.cioccarellia.sample
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cioccarellia.lib.ComplexNumber
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.flow
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 import kotlin.random.Random
 
+@HiltViewModel
 class MainViewModel @Inject constructor() : ViewModel() {
     private val _complexFlow = flow {
         while (true) {
