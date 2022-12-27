@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://app.codacy.com/manual/lib-template-android/dashboard"><img src="https://app.codacy.com/project/badge/Grade/1ba2dd5e557849ab98ad6d564cfadc11" alt="Codacy"></a>
-  <a href="https://kotlinlang.org/docs/releases.html"><img src="https://img.shields.io/badge/kotlin-1.6.10-orange.svg" alt="Kotlin"></a>[README](assets/README.md)
-  <a href="https://gradle.org/releases/"><img src="https://img.shields.io/badge/gradle-7.4.1-102f39.svg" alt="Gradle version"></a>
+  <a href="https://kotlinlang.org/docs/releases.html"><img src="https://img.shields.io/badge/kotlin-1.6.10-orange.svg" alt="Kotlin"></a>
+  <a href="https://gradle.org/releases"><img src="https://img.shields.io/badge/gradle-7.4.1-102f39.svg" alt="Gradle version"></a>
   <a href="https://source.android.com/setup/start/build-numbers"><img src="https://img.shields.io/badge/min-15-00e676.svg" alt="Android Min Sdk"></a>
   <a href="https://source.android.com/setup/start/build-numbers"><img src="https://img.shields.io/badge/compile-31-00e676.svg" alt="Android Compile Version"></a>
   <a href="https://github.com/cioccarellia/lib-template-android/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a>
