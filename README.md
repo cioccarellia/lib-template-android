@@ -63,8 +63,8 @@ If you intend to deploy your library to MavenCentral (assuming your accounts and
     signing.secretKeyRingFile=    # Your GPG Key file path
     ossrhUsername=                # Account Username
     ossrhPassword=                # Account Password
-    sonatypeStagingProfileId=     # These two shoudld match, they are your profile id.
-    stagingProfileId=             # These two shoudld match, they are your profile id.
+    sonatypeStagingProfileId=     # These two should match, they are your reporitory's profileId.
+    stagingProfileId=             # These two should match, they are your reporitory's profileId.
     ```
 
 
@@ -75,10 +75,11 @@ If you intend to deploy your library to MavenCentral (assuming your accounts and
     SIGNING_KEY_ID                # Your GPG Key ID
     SIGNING_PASSWORD              # Your Key Passphrase
     SIGNING_SECRET_KEY_RING_FILE  # Your GPG Key file path
-    SONATYPE_STAGING_PROFILE_ID   # These two shoudld match, they are your profile id.
+    SONATYPE_STAGING_PROFILE_ID   # These two should match, they are your reporitory's profileId.
     ```
 
-The deployment utility which comes with the project works with serial 1-module deployment. This means that if you have multiple modules, you can:
+The deployment utility which comes with the project works with serial 1-module deployment (publishes only one module at a time). 
+This means that if you have multiple modules, you can:
 - Create and customize different publishing gradle files (like `scripts/publishing/publish_mavencentral.gradle`), one for each module;
 - Manually change parameters on that one file, and run one publishing operation for each module.
 
